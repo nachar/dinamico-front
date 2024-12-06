@@ -18,8 +18,8 @@ function App() {
     <>
       <ul>
         {
-          menu.map(({title, description, price, active}) => {
-            return (active) ? <li>
+          menu.map(({id, title, description, price, active}) => {
+            return (active) ? <li key={id}>
               <p>{title}</p>
               <p>{description}</p>
               <p>{price}</p>
