@@ -1,0 +1,22 @@
+.navbar__ {
+  &container {
+    position: fixed;
+    bottom: 1rem;
+    grid-area: navbar;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+  &item {
+    list-style: none;
+    font-size: 1.25rem;
+    letter-spacing: -1px;
+  }
+  &link {
+    text-decoration: none;
+    color: black;
+  }
+}

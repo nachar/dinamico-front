@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import "./App.scss";
+import { useEffect, useState } from "react";
 import { getMenu } from "./api/dynamic-menu.js";
+import Nav from "./components/Nav/Nav.jsx";
+import FeaturedContainer from "./components/FeaturedContainer/FeaturedContainer.jsx";
+import MenuContainer from "./components/MenuContainer/MenuContainer.jsx";
 
 function App() {
   const [menu, setMenu] = useState([]);
@@ -13,21 +16,13 @@ function App() {
     const { data } = await getMenu();
     setMenu(data);
   };
-
   return (
     <>
-      <ul>
-        {
-          menu.map(({id, title, description, price, active}) => {
-            return (active) ? <li key={id}>
-              <p>{title}</p>
-              <p>{description}</p>
-              <p>{price}</p>
-            </li> : ''
-          })}
-      </ul>
+      <FeaturedContainer data={menu} />
+      <MenuContainer data={menu} />
+      <Nav />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Custom CSS Styles */
+
+@import "global";
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr 2rem;
+  grid-template-columns: repeat(2, 100vw);
+  grid-template-areas:
+    "title"
+    "menu"
+    "navbar";
+  // overflow-x: scroll;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: $secondary;
+  color: $primary;
+}
