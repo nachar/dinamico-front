@@ -1,14 +1,16 @@
+@import "../../global.scss";
+
 .navbar__ {
   &container {
     position: fixed;
-    bottom: 1rem;
-    grid-area: navbar;
+    bottom: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    background-color: $background;
   }
   &item {
     list-style: none;

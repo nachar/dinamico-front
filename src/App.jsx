@@ -2,8 +2,7 @@ import "./App.scss";
 import { useEffect, useState } from "react";
 import { getMenu } from "./api/dynamic-menu.js";
 import Nav from "./components/Nav/Nav.jsx";
-import FeaturedContainer from "./components/FeaturedContainer/FeaturedContainer.jsx";
-import MenuContainer from "./components/MenuContainer/MenuContainer.jsx";
+import PlateOfTheDay from "./components/PlateOfTheDay/PlateOfTheDay.jsx";
 
 function App() {
   const [menu, setMenu] = useState([]);
@@ -15,11 +14,12 @@ function App() {
   const getData = async () => {
     const { data } = await getMenu();
     setMenu(data);
+
+    // console.log(menu);
   };
   return (
     <>
-      <FeaturedContainer data={menu} />
-      <MenuContainer data={menu} />
+      <PlateOfTheDay menu={menu} />
       <Nav />
     </>
   );
