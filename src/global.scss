@@ -2,3 +2,18 @@
 
 $background: #fef9e7;
 $secondary: #ffb15e;
+
+//mixins
+
+@mixin shape($image, $y-position) {
+  display: block;
+  width: 110%;
+  height: 15px;
+  background-image: url($image);
+  background-repeat: repeat-x;
+  background-position: 50% 50%;
+  background-size: contain;
+  position: absolute;
+  #{$y-position}: -14px;
+  left: -6px;
+}

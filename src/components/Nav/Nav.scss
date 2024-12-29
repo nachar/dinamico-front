@@ -7,18 +7,24 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding: 0.5rem 2rem;
     background-color: $background;
+    overflow-x: scroll;
   }
   &item {
     list-style: none;
     font-size: 1.25rem;
     letter-spacing: -1px;
+    display: flex;
+    align-items: baseline;
   }
   &link {
     text-decoration: none;
     color: black;
+    width: 7rem;
+    display: flex;
+    justify-content: center;
   }
 }

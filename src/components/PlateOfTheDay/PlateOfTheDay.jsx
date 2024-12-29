@@ -1,25 +1,13 @@
 import "./PlateOfTheDay.scss";
+import Image from "../../assets/plato-del-dia.png";
 
 const PlateOfDeDay = ({ menu }) => {
   return (
     <section className="potd-container" id="del-dia">
       {menu.map((plate) => {
-        const {
-          title,
-          description,
-          image,
-          featured,
-          price,
-        } = plate;
-
-        const formattedPrice = price.toLocaleString(
-          "es-CL",
-          {
-            style: "currency",
-            currency: "CLP",
-          }
-        );
-        const photo = `http://localhost:1337${image.url}`; // costruyendo url completa de las imagenes
+        const { title, image, featured } = plate;
+        const photo =
+          image && `http://localhost:1337${image.url}`;
 
         return (
           featured && (
@@ -35,6 +23,12 @@ const PlateOfDeDay = ({ menu }) => {
               <div className="potd-item">
                 <span className="potd-top" />
                 <div>
+                  <img
+                    src={Image}
+                    alt=""
+                    className="potd-icon"
+                  />
+
                   <h2 className="potd-title--1">
                     Plato del día
                   </h2>

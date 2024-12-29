@@ -1,0 +1,19 @@
+.item- {
+  &container {
+    width: 100%;
+    height: 5.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px dotted black;
+  }
+  &header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.25rem;
+  }
+  &description {
+    padding: 0 2.25rem;
+  }
+}

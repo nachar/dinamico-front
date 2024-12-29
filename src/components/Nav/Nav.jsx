@@ -1,18 +1,19 @@
 import "./Nav.scss";
-const Nav = () => {
+const Nav = ({ sections }) => {
   return (
     <nav className="navbar__container">
       <li className="navbar__item">
         <a href="#del-dia" className="navbar__link">
-          Del día
+          Plato del día
         </a>
       </li>
-      <li className="navbar__item" value="otros">
-        <a href="#menu" className="navbar__link">
-          Desayunos
-        </a>
-      </li>
-      <li className="navbar__item">Almuerzos</li>
+      {sections.map((section) => (
+        <li key={section} className="navbar__item">
+          <a href={`#${section}`} className="navbar__link">
+            {section}
+          </a>
+        </li>
+      ))}
     </nav>
   );
 };
