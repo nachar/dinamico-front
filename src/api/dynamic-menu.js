@@ -1,10 +1,10 @@
-export const API_URL = "http://localhost:1337/api/";
+import { API_URL } from "../utilities/constants.js";
 
 export const getMenu = async () => {
   try {
     const response = await fetch(
-      `${API_URL}menus?populate=image`
-    ); // agregué el populate para poder traer imágenes (el campo image de la colección)
+      `${API_URL}/api/menus?populate=image`
+    );
     return await response.json();
   } catch (error) {
     return error;

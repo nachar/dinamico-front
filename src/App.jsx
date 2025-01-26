@@ -7,6 +7,8 @@ import PlatesList from "./components/PlatesList/PlatesList.jsx";
 
 function App() {
   const [menu, setMenu] = useState([]);
+  const [sections, setSections] = useState([]);
+  const [plateOfTheDay, setPlateOfTheDay] = useState();
 
   useEffect(() => {
     getData();
@@ -15,20 +17,29 @@ function App() {
   const getData = async () => {
     const { data } = await getMenu();
     setMenu(data);
+    mapSections(data);
+    mapPlateOfTheDay(data);
   };
 
-  // Crear un nuevo array con las secciones únicas, excluyendo valores null
-  const sections = Array.from(
-    new Set(
-      menu
-        .map((item) => item.type)
-        .filter((type) => type !== null)
-    )
-  );
+  const mapSections = (data) => {
+    setSections(Array.from(
+      new Set(
+        data
+          .map((item) => item.type)
+          .filter((type) => type !== null)
+      )
+    ))
+  };
+
+  const mapPlateOfTheDay = (data) => {
+    const plate = data.find(item => item?.featured);
+    setPlateOfTheDay(plate);
+  };
 
   return (
     <>
-      <PlateOfTheDay menu={menu} />
+      {plateOfTheDay && <PlateOfTheDay plate={plateOfTheDay} />}
+
 
       {sections.map((type) => (
         <PlatesList key={type} type={type} menu={menu} />
